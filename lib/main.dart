@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home/home_wiget.dart';
+import 'maff/maff_wiget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'fund book',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routes: {
-        '/': (context) => const HomeWiget(title: 'Flutter Demo Home Page')
-      },
+      routes: {'/': (context) => const MaffWiget(title: '農林水産省')},
     );
   }
 }
