@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fund_book/View/maff/maff_public_offering_widget.dart';
+import 'package:fund_book/View/maff/maff_subsides_and_financing_widget.dart';
 
 class MaffWiget extends StatefulWidget {
   const MaffWiget({super.key, required this.title});
@@ -18,22 +20,19 @@ class _MaffWigetState extends State<MaffWiget> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: tabs.length,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text(widget.title),
-            bottom: TabBar(tabs: tabs),
-          ),
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text(
-                  'You have pushed the button this many times:',
-                ),
-              ],
-            ),
-          ),
-        ));
+      length: tabs.length,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.title),
+          bottom: TabBar(tabs: tabs),
+        ),
+        body: TabBarView(
+          children: <Widget>[
+            MaffPublicOfferingWidget(),
+            MaffSubsidesAndFinancingWidget(),
+          ],
+        ),
+      ),
+    );
   }
 }
