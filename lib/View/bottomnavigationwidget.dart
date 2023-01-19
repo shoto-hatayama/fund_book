@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 
 class BottomNavigationWidget extends StatefulWidget {
-  const BottomNavigationWidget({super.key});
+  final Function(int index) setSelectedIndex;
+  final int selectedIndex;
+  const BottomNavigationWidget(
+      {super.key, required this.setSelectedIndex, required this.selectedIndex});
 
   @override
   State<BottomNavigationWidget> createState() => _ButtomNavigationState();
 }
 
 class _ButtomNavigationState extends State<BottomNavigationWidget> {
-  int _currentindex = 0;
-
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
-      selectedIndex: _currentindex,
+      selectedIndex: widget.selectedIndex,
       onDestinationSelected: (index) => setState(() {
-        _currentindex = index;
+        widget.setSelectedIndex(index);
       }),
       destinations: const [
         NavigationDestination(
