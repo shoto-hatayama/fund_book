@@ -5,9 +5,7 @@ import 'package:fund_book/View/bottomnavigationwidget.dart';
 import 'package:fund_book/View/jnet21/jnet21_widget.dart';
 
 class MaffWiget extends StatefulWidget {
-  const MaffWiget({super.key, required this.title});
-
-  final String title;
+  const MaffWiget({super.key});
 
   @override
   State<MaffWiget> createState() => _MaffWigetState();
@@ -38,7 +36,6 @@ class _MaffWigetState extends State<MaffWiget> {
       length: tabs.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
           bottom: TabBar(tabs: tabs),
         ),
         body: page[_selectedIndex],

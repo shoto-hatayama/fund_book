@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routes: {'/': (context) => const MaffWiget(title: '農林水産省')},
+      routes: {'/': (context) => const MaffWiget()},
     );
   }
 }
