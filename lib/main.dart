@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'maff/maff_wiget.dart';
+import 'View/maff/maff_wiget.dart';
 
 void main() {
   runApp(const MyApp());
