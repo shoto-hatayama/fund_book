@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fund_book/View/bottomnavigationwidget.dart';
 import 'package:fund_book/View/jnet21/jnet21_widget.dart';
-import 'package:fund_book/View/maff/maff_wiget.dart';
+import 'package:fund_book/View/maff/maff_widget.dart';
 
 class SwitchRoute extends StatefulWidget {
   const SwitchRoute({super.key});
