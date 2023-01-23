@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'View/maff/maff_wiget.dart';
+import 'package:fund_book/View/switch_route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routes: {'/': (context) => const MaffWiget()},
+      home: const SwitchRoute(),
     );
   }
 }

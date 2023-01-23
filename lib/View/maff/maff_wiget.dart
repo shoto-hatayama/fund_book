@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fund_book/View/maff/maff_public_offering_widget.dart';
 import 'package:fund_book/View/maff/maff_subsides_and_financing_widget.dart';
-import 'package:fund_book/View/bottomnavigationwidget.dart';
-import 'package:fund_book/View/jnet21/jnet21_widget.dart';
+import 'package:fund_book/View/maff_appbar.dart';
 
 class MaffWiget extends StatefulWidget {
   const MaffWiget({super.key});
@@ -12,36 +11,21 @@ class MaffWiget extends StatefulWidget {
 }
 
 class _MaffWigetState extends State<MaffWiget> {
-  int _selectedIndex = 0;
-  final tabs = [
-    Tab(text: '公募', icon: Icon(Icons.star_rate)),
-    Tab(text: '補助金・融資', icon: Icon(Icons.attach_money)),
-  ];
-  void setSelectedIndex(int index) => setState(() {
-        _selectedIndex = index;
-      });
-  final page = [
-    TabBarView(
-      children: <Widget>[
-        MaffPublicOfferingWidget(),
-        MaffSubsidesAndFinancingWidget(),
-      ],
-    ),
-    Jnet21Widget(),
-  ];
+  MaffAppBar _maff_appbar = MaffAppBar();
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: tabs.length,
+      length: _maff_appbar.length(),
       child: Scaffold(
         appBar: AppBar(
-          bottom: TabBar(tabs: tabs),
+          bottom: TabBar(tabs: _maff_appbar.getTabs()),
         ),
-        body: page[_selectedIndex],
-        bottomNavigationBar: BottomNavigationWidget(
-          selectedIndex: _selectedIndex,
-          setSelectedIndex: setSelectedIndex,
+        body: TabBarView(
+          children: <Widget>[
+            MaffPublicOfferingWidget(),
+            MaffSubsidesAndFinancingWidget(),
+          ],
         ),
       ),
     );
