@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "54356384978",
+    "project_id": "fundingsourceview",
+    "storage_bucket": "fundingsourceview.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54356384978:android:f4cd65743b7dba4304e10b",
+        "android_client_info": {
+          "package_name": "com.example.fund_book"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54356384978-uheqds7cgqsp3pjcrcgpci72dvle0dtn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFItfRYIGhUCRgXEkzXiDK8NTpL2x3_jA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54356384978-uheqds7cgqsp3pjcrcgpci72dvle0dtn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "54356384978-2uc42ogo9e4k77a8oquq570ehl3bcis9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fundBook"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
