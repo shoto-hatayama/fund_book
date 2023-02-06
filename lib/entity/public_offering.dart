@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 
 class PublicOffering {
   late final String name;
@@ -22,5 +23,15 @@ class PublicOffering {
     this.url = url;
     this.beginDate = convert_datetime_begindate;
     this.endDate = convert_datetime_enddate;
+  }
+
+  /// 開始日をyyyy-MM-ddで返す
+  String getFormatedBeginDate() {
+    return DateFormat("yyyy-MM-dd").format(this.beginDate);
+  }
+
+  /// 終了日をyyyy-MM-ddで返す
+  String getFormatedEndDate() {
+    return DateFormat("yyyy-MM-dd").format(this.endDate);
   }
 }

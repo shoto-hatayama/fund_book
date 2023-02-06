@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:fund_book/model/public_offering_list_model.dart';
-import 'package:intl/intl.dart';
 
 class MaffPublicOfferingWidget extends StatelessWidget {
   @override
@@ -16,8 +15,9 @@ class MaffPublicOfferingWidget extends StatelessWidget {
                 .map((public_offering) => Card(
                     child: ListTile(
                         title: Text(public_offering.name),
-                        subtitle: Text(DateFormat("yyyy-MM-dd")
-                            .format(public_offering.beginDate)),
+                        subtitle: Text(public_offering.getFormatedBeginDate() +
+                            "〜" +
+                            public_offering.getFormatedEndDate()),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(100)),
                         ))))
