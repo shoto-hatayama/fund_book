@@ -14,6 +14,10 @@ class PublicOfferingListModel extends ChangeNotifier {
         .map((doc) => PublicOffering(doc['public_offering_name'], doc['url'],
             doc['begin_date'], doc['end_date']))
         .toList();
+
+    /// 表示画面には期日が早い順で並べる
+    public_offering.sort((a, b) => a.endDate.compareTo(b.endDate));
+
     this.public_Offering = public_offering;
     notifyListeners();
   }
