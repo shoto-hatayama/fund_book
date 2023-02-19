@@ -66,7 +66,23 @@ class _Jnet21WidgetState extends State<Jnet21Widget> {
                   })
             ])
           ],
-        )
+        ),
+        // カードウィジェットにJNET21から取得した情報を入れる
+        // TODO:後で表示の仕方について検討する（LISTTILEのタイトルの左側が空欄できる）
+        Card(
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ListTile(
+              title: Text('タイトル'),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(100))),
+            ),
+            // 期間が存在しない時は「-」のみにする
+            Text('期間：2022月1月1日〜2023年1月1日'),
+            Text('地域：宮城県'),
+          ],
+        ))
       ],
     ));
   }
