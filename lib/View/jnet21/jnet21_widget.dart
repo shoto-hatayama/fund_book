@@ -34,14 +34,14 @@ class _Jnet21WidgetState extends State<Jnet21Widget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ListTile(
-                            title: Text('タイトル'),
+                            title: Text(jnet21.title),
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(100))),
                           ),
                           // 期間が存在しない時は「-」のみにする
-                          Text('期間：2022月1月1日〜2023年1月1日'),
-                          Text('地域：宮城県'),
+                          Text('期間：' + jnet21.termDate()),
+                          Text('地域：' + jnet21.area),
                         ],
                       ))))
                   .toList();

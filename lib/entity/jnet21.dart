@@ -45,4 +45,18 @@ class Jnet21 {
     this.startDate = convert_datetime_startdate;
     this.endDate = convert_datetime_endDate;
   }
+
+  String termDate() {
+    // この日付よりも古いものは開始日または終了日の日付の記載がなかったもの
+    DateTime date = DateTime(2000, 2, 1);
+
+    if (date.isAfter(this.startDate)) {
+      return DateFormat('〜yyyy年MM月dd日').format(this.endDate);
+    }
+    if (date.isAfter(this.endDate)) {
+      return DateFormat('yyyy年MM月dd日〜').format(this.startDate);
+    }
+    return DateFormat('yyyy年MM月dd日〜').format(this.startDate) +
+        DateFormat('yyyy年MM月dd日').format(this.endDate);
+  }
 }
