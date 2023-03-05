@@ -17,11 +17,11 @@ class Jnet21ListModel extends ChangeNotifier {
             doc['area'],
             doc['industry'],
             doc['executing_agency'],
-            doc['executing_agencyinfo'],
+            doc['executing_agency_info'],
             doc['start_date'],
             doc['end_date'],
             doc['detail_url'],
-            doc['detail_nurl_name']))
+            doc['detail_url_name']))
         .toList();
 
     this.jnet21 = jnet21;
