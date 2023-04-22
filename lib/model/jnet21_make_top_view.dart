@@ -6,8 +6,11 @@ class Jnet21MakeTopView {
   List<GestureDetector> result = [];
 
   Jnet21MakeTopView(this._jnet21List) {
-    this.result = this
-        ._jnet21List
+    this.makeTopViewList(this._jnet21List);
+  }
+
+  void makeTopViewList(List<Jnet21> list) {
+    this.result = list
         .map((jnet21) => GestureDetector(
             onTap: () {
               // 後程実装
