@@ -43,5 +43,16 @@ class Jnet21MakeTopView extends ChangeNotifier {
         .toList();
     notifyListeners();
   }
+
+  void searchType(String type) {
+    List<Jnet21> result = [];
+
+    for (Jnet21 val in this._jnet21List) {
+      if (val.type == type) {
+        result.add(val);
+      }
+    }
+    this.makeTopViewList(result);
+    notifyListeners();
   }
 }

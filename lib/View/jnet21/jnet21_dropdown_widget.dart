@@ -36,6 +36,7 @@ class _Jnet21DropdownState extends State<Jnet21DropdownWidget> {
               onChanged: (String? value) {
                 setState(() {
                   type = value!;
+                  widget.topView.searchType(type);
                 });
               })
         ]),
