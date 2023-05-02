@@ -35,6 +35,7 @@ class Jnet21 {
       print("endDateがDateTime型に変換できませんでした");
       return;
     }
+    this.type = type;
     this.title = title;
     this.area = area;
     this.industry = industry;
