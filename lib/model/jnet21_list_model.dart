@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Jnet21ListModel extends ChangeNotifier {
-  List<Jnet21> jnet21 = [];
+  List<Jnet21> _jnet21 = [];
 
   Future<void> getJnet21() async {
     final collection = await FirebaseFirestore.instance
@@ -24,7 +24,11 @@ class Jnet21ListModel extends ChangeNotifier {
             doc['detail_url_name']))
         .toList();
 
-    this.jnet21 = jnet21;
+    this._jnet21 = jnet21;
     notifyListeners();
+  }
+
+  List<Jnet21> getList() {
+    return this._jnet21;
   }
 }
