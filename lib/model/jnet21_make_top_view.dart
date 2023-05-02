@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:fund_book/entity/jnet21.dart';
+import 'package:fund_book/model/jnet21_list_model.dart';
 
-class Jnet21MakeTopView {
-  final List<Jnet21> _jnet21List;
+class Jnet21MakeTopView extends ChangeNotifier {
+  List<Jnet21> _jnet21List = [];
   List<GestureDetector> result = [];
 
-  Jnet21MakeTopView(this._jnet21List) {
+  Jnet21MakeTopView() {
+    loadJnet21List();
+  }
+
+  Future<void> loadJnet21List() async {
+    final jnet = Jnet21ListModel();
+    await jnet.getJnet21();
+    this._jnet21List = jnet.getList();
     this.makeTopViewList(this._jnet21List);
+    notifyListeners();
   }
 
   void makeTopViewList(List<Jnet21> list) {
@@ -32,5 +41,7 @@ class Jnet21MakeTopView {
               ],
             ))))
         .toList();
+    notifyListeners();
+  }
   }
 }
