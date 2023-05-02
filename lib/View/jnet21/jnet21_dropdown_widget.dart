@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fund_book/entity/jnet21.dart';
+import 'package:fund_book/model/jnet21_list_model.dart';
+import 'package:fund_book/model/jnet21_make_top_view.dart';
 
 class Jnet21DropdownWidget extends StatefulWidget {
-  const Jnet21DropdownWidget({super.key});
+  final Jnet21MakeTopView topView;
+  const Jnet21DropdownWidget({Key? key, required this.topView})
+      : super(key: key);
 
   @override
   State<Jnet21DropdownWidget> createState() => _Jnet21DropdownState();
@@ -9,7 +14,7 @@ class Jnet21DropdownWidget extends StatefulWidget {
 
 class _Jnet21DropdownState extends State<Jnet21DropdownWidget> {
   // TODO：モックのため後程変数は変更する
-  String selectedValue1 = '補助金';
+  String type = '補助金・助成金';
   String selectedValue2 = '製造業';
   String selectedValue3 = '宮城県';
   @override
@@ -22,13 +27,15 @@ class _Jnet21DropdownState extends State<Jnet21DropdownWidget> {
           Spacer(),
           DropdownButton(
               items: const [
-                DropdownMenuItem(value: '補助金', child: Text('補助金')),
-                DropdownMenuItem(value: '融資', child: Text('融資'))
+                DropdownMenuItem(value: '補助金・助成金', child: Text('補助金・助成金')),
+                DropdownMenuItem(value: '融資', child: Text('融資')),
+                DropdownMenuItem(value: '出資', child: Text('出資')),
+                DropdownMenuItem(value: '税制', child: Text('税制'))
               ],
-              value: selectedValue1,
+              value: type,
               onChanged: (String? value) {
                 setState(() {
-                  selectedValue1 = value!;
+                  type = value!;
                 });
               })
         ]),

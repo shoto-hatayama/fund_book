@@ -16,19 +16,21 @@ class _Jnet21WidgetState extends State<Jnet21Widget> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<Jnet21ListModel>(
-        create: (_) => Jnet21ListModel()..getJnet21(),
+    return ChangeNotifierProvider<Jnet21MakeTopView>(
+        create: (_) => Jnet21MakeTopView(),
         child: Scaffold(
-          body: Consumer<Jnet21ListModel>(
+          body: Consumer<Jnet21MakeTopView>(
             builder: (context, model, child) {
-              jnet21 = model.jnet21;
-              list_jnet21 = Jnet21MakeTopView(jnet21).result;
+              final topView = Provider.of<Jnet21MakeTopView>(context);
+
               return Column(
                 children: [
-                  Jnet21DropdownWidget(),
+                  Jnet21DropdownWidget(
+                    topView: topView,
+                  ),
                   Expanded(
                       child: ListView(
-                    children: list_jnet21,
+                    children: topView.result,
                   ))
                 ],
               );
