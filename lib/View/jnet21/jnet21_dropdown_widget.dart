@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fund_book/entity/jnet21.dart';
 import 'package:fund_book/model/jnet21_list_model.dart';
 import 'package:fund_book/model/jnet21_make_top_view.dart';
+import 'package:fund_book/const/jnet21_drop_down.dart';
 
 class Jnet21DropdownWidget extends StatefulWidget {
   final Jnet21MakeTopView topView;
@@ -13,10 +14,9 @@ class Jnet21DropdownWidget extends StatefulWidget {
 }
 
 class _Jnet21DropdownState extends State<Jnet21DropdownWidget> {
-  // TODO：モックのため後程変数は変更する
-  String type = '補助金・助成金';
-  String selectedValue2 = '製造業';
-  String selectedValue3 = '宮城県';
+  String type = Jnet21DropDown.types[0];
+  String industry = Jnet21DropDown.industrys[0];
+  String area = Jnet21DropDown.areas[0];
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
@@ -26,12 +26,10 @@ class _Jnet21DropdownState extends State<Jnet21DropdownWidget> {
           Text('種類：'),
           Spacer(),
           DropdownButton(
-              items: const [
-                DropdownMenuItem(value: '補助金・助成金', child: Text('補助金・助成金')),
-                DropdownMenuItem(value: '融資', child: Text('融資')),
-                DropdownMenuItem(value: '出資', child: Text('出資')),
-                DropdownMenuItem(value: '税制', child: Text('税制'))
-              ],
+              items:
+                  Jnet21DropDown.types.map<DropdownMenuItem<String>>((value) {
+                return DropdownMenuItem(value: value, child: Text(value));
+              }).toList(),
               value: type,
               onChanged: (String? value) {
                 setState(() {
@@ -44,14 +42,14 @@ class _Jnet21DropdownState extends State<Jnet21DropdownWidget> {
           Text('業種：'),
           Spacer(),
           DropdownButton(
-              items: const [
-                DropdownMenuItem(value: '製造業', child: Text('製造業')),
-                DropdownMenuItem(value: 'サービス業', child: Text('サービス業'))
-              ],
-              value: selectedValue2,
+              items: Jnet21DropDown.industrys
+                  .map<DropdownMenuItem<String>>((value) {
+                return DropdownMenuItem(value: value, child: Text(value));
+              }).toList(),
+              value: industry,
               onChanged: (String? value) {
                 setState(() {
-                  selectedValue2 = value!;
+                  industry = value!;
                 });
               })
         ]),
@@ -59,14 +57,14 @@ class _Jnet21DropdownState extends State<Jnet21DropdownWidget> {
           Text('地域：'),
           Spacer(),
           DropdownButton(
-              items: const [
-                DropdownMenuItem(value: '宮城県', child: Text('宮城県')),
-                DropdownMenuItem(value: '秋田県', child: Text('秋田県'))
-              ],
-              value: selectedValue3,
+              items:
+                  Jnet21DropDown.areas.map<DropdownMenuItem<String>>((value) {
+                return DropdownMenuItem(value: value, child: Text(value));
+              }).toList(),
+              value: area,
               onChanged: (String? value) {
                 setState(() {
-                  selectedValue3 = value!;
+                  area = value!;
                 });
               })
         ])
