@@ -44,16 +44,16 @@ class Jnet21MakeTopView extends ChangeNotifier {
     notifyListeners();
   }
 
-  void searchType(String type) {
+  void search(String type, String industory, String area) {
     List<Jnet21> result = [];
-
-    if (type.isEmpty) return this.makeTopViewList(this._jnet21List);
-
     for (Jnet21 val in this._jnet21List) {
-      if (val.type == type) {
+      if (!type.isEmpty && !val.type.contains(type)) continue;
+      if (!industory.isEmpty && !val.industry.contains(industory)) continue;
+      if (val.area.contains(area)) {
         result.add(val);
       }
     }
+    ;
     this.makeTopViewList(result);
     notifyListeners();
   }

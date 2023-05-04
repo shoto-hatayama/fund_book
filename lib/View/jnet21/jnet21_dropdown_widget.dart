@@ -34,7 +34,7 @@ class _Jnet21DropdownState extends State<Jnet21DropdownWidget> {
               onChanged: (String? value) {
                 setState(() {
                   type = value!;
-                  widget.topView.searchType(type);
+                  widget.topView.search(type, industry, area);
                 });
               })
         ]),
@@ -50,6 +50,7 @@ class _Jnet21DropdownState extends State<Jnet21DropdownWidget> {
               onChanged: (String? value) {
                 setState(() {
                   industry = value!;
+                  widget.topView.search(type, industry, area);
                 });
               })
         ]),
@@ -65,6 +66,7 @@ class _Jnet21DropdownState extends State<Jnet21DropdownWidget> {
               onChanged: (String? value) {
                 setState(() {
                   area = value!;
+                  widget.topView.search(type, industry, area);
                 });
               })
         ])
