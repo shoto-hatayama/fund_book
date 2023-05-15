@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fund_book/entity/jnet21.dart';
 import 'package:fund_book/model/jnet21_list_model.dart';
+import 'package:fund_book/View/jnet21/jnet21_detail_widget.dart';
 
 class Jnet21MakeTopView extends ChangeNotifier {
   List<Jnet21> _jnet21List = [];
   List<GestureDetector> result = [];
+  final BuildContext context;
 
-  Jnet21MakeTopView() {
+  Jnet21MakeTopView(this.context) {
     loadJnet21List();
   }
 
@@ -22,7 +24,11 @@ class Jnet21MakeTopView extends ChangeNotifier {
     this.result = list
         .map((jnet21) => GestureDetector(
             onTap: () {
-              // 後程実装
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          Jnet21DetailWidget(jnet21: jnet21)));
             },
             child:
                 // TODO:後で表示の仕方について検討する（LISTTILEのタイトルの左側が空欄できる）

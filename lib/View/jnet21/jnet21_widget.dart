@@ -17,8 +17,9 @@ class _Jnet21WidgetState extends State<Jnet21Widget> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<Jnet21MakeTopView>(
-        create: (_) => Jnet21MakeTopView(),
+        create: (_) => Jnet21MakeTopView(context),
         child: Scaffold(
+          appBar: AppBar(title: Text('')),
           body: Consumer<Jnet21MakeTopView>(
             builder: (context, model, child) {
               final topView = Provider.of<Jnet21MakeTopView>(context);
