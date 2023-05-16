@@ -7,7 +7,6 @@ class Jnet21ItemName {
   static const String industry = '業種';
   static const String executingAgency = '実施機関';
   static const String executingAgencyInfo = '実施機関からのお知らせ';
-  static const String startDate = '開始日';
-  static const String endDate = '終了日';
-  static const String detailUrlName = '詳細情報';
+  static const String expirationDate = '期限日';
+  static const String detailUrlName = '詳細情報を見る';
 }
