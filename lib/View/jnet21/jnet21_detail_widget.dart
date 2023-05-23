@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fund_book/const/jnet21_item_name.dart';
 import 'package:fund_book/entity/jnet21.dart';
 import 'package:fund_book/View/jnet21/detail_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Jnet21DetailWidget extends StatelessWidget {
   final Jnet21 jnet21;
@@ -25,9 +26,13 @@ class Jnet21DetailWidget extends StatelessWidget {
               DetailCard(Jnet21ItemName.executingAgencyInfo,
                       jnet21.executingAgencyInfo)
                   .make(),
-              // TODO:URLをタップすると該当ページに遷移する処理を実装する
-              // 現在はタップしても遷移しない
-              DetailCard(Jnet21ItemName.detailUrlName, jnet21.detailUrl).make(),
+              // TODO:ボタンの色は後ほど検討
+              ElevatedButton(
+                  onPressed: () {
+                    launchUrl(Uri.parse(jnet21.detailUrl),
+                        mode: LaunchMode.inAppWebView);
+                  },
+                  child: const Text(Jnet21ItemName.detailUrlName))
             ],
           ),
         ));
