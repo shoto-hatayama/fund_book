@@ -14,8 +14,8 @@ class FinancingList extends ChangeNotifier {
             doc['outline'],
             doc['target'],
             doc['interest'],
-            doc['borrowingLimit'],
-            doc['termOfRedemption'],
+            doc['borrowing_limit'],
+            doc['term_of_redemption'],
             doc['remarks'],
             doc['url']))
         .toList();
