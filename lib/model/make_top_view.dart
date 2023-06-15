@@ -14,7 +14,8 @@ class MakeTopView extends ChangeNotifier {
   Future<void> loadFundingList() async {
     final financing = FinancingList();
     await financing.getFinancing();
-    _fundingList = financing.getList();
+    financingTopView(financing.getList());
+    notifyListeners();
   }
 
   void financingTopView(List<Financing> fundingList) {
@@ -32,8 +33,13 @@ class MakeTopView extends ChangeNotifier {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(100))),
                 ),
-                Text('借入限度額' + financing.borrowingLimit),
-                Text('償還期限：' + financing.termOfRedemption),
+                Text(
+                  '対象者：',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(financing.target),
+                Text('借入限度額：', style: TextStyle(fontWeight: FontWeight.bold)),
+                Text(financing.borrowingLimit)
               ],
             ))))
         .toList();
