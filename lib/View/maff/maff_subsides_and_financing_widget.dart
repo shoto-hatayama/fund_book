@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:fund_book/model/make_top_view.dart';
+import 'package:fund_book/View/maff/dropdown_widget.dart';
 
 class MaffSubsidesAndFinancingWidget extends StatefulWidget {
   @override
@@ -18,6 +19,7 @@ class _SubsidesAndFinancingWidget
             body: Consumer<MakeTopView>(builder: (context, model, child) {
           final fundingList = Provider.of<MakeTopView>(context);
           return Column(children: [
+            DropdownWidget(topView: fundingList),
             Expanded(
                 child: ListView(
               children: fundingList.result,
