@@ -5,6 +5,8 @@ import 'package:fund_book/model/financiing_list.dart';
 class MakeTopView extends ChangeNotifier {
   List _fundingList = [];
   List<GestureDetector> result = [];
+  final String financing = '融資';
+  final String subsides = '補助金';
   final BuildContext context;
 
   MakeTopView(this.context) {
@@ -12,9 +14,9 @@ class MakeTopView extends ChangeNotifier {
   }
 
   Future<void> loadFundingList() async {
-    final financing = FinancingList();
-    await financing.getFinancing();
-    financingTopView(financing.getList());
+    final financingList = FinancingList();
+    await financingList.getFinancing();
+    financingTopView(financingList.getList());
     notifyListeners();
   }
 
@@ -43,6 +45,15 @@ class MakeTopView extends ChangeNotifier {
               ],
             ))))
         .toList();
+    notifyListeners();
+  }
+
+  void search(String type) {
+    if (financing == type) {
+      loadFundingList();
+    } else if (subsides == type) {
+      // 補助金リストの取得処理
+    }
     notifyListeners();
   }
 }

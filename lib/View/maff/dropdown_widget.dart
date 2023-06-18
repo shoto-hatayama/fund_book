@@ -29,7 +29,7 @@ class _DropdownWidgetState extends State<DropdownWidget> {
               onChanged: (String? value) {
                 setState(() {
                   type = value!;
-                  //TODO:検索処理を後程実装
+                  widget.topView.search(value);
                 });
               })
         ])
