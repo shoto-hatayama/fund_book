@@ -90,7 +90,7 @@ class MakeTopView extends ChangeNotifier {
     if (financing == type) {
       loadFundingList();
     } else if (subsides == type) {
-      // 補助金リストの取得処理
+      loadSubsidesList();
     }
     notifyListeners();
   }
