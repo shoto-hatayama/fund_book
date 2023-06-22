@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fund_book/entity/financing.dart';
 import 'package:fund_book/model/financiing_list.dart';
+import 'package:fund_book/model/subsides_list.dart';
+import 'package:fund_book/entity/subsides.dart';
 
 class MakeTopView extends ChangeNotifier {
   List _fundingList = [];
@@ -17,6 +19,42 @@ class MakeTopView extends ChangeNotifier {
     final financingList = FinancingList();
     await financingList.getFinancing();
     financingTopView(financingList.getList());
+    notifyListeners();
+  }
+
+  Future<void> loadSubsidesList() async {
+    final subsidesList = SubsidesList();
+    await subsidesList.getSubsides();
+    subsidesTopView(subsidesList.getList());
+    notifyListeners();
+  }
+
+  void subsidesTopView(List<Subsides> subsidesList) {
+    result = subsidesList
+        .map((subsides) => GestureDetector(
+            onTap: () {
+              // 後程実装
+            },
+            child: Card(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ListTile(
+                  title: Text(subsides.title),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(100))),
+                ),
+                const Text(
+                  '対象者：',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(subsides.target),
+                const Text('公募時期',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                Text(subsides.season)
+              ],
+            ))))
+        .toList();
     notifyListeners();
   }
 
