@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fund_book/View/maff/subsides_detail_widget.dart';
+import 'package:fund_book/View/maff/financing_detail_widget.dart';
 import 'package:fund_book/entity/financing.dart';
 import 'package:fund_book/model/financiing_list.dart';
 import 'package:fund_book/model/subsides_list.dart';
@@ -67,7 +68,11 @@ class MakeTopView extends ChangeNotifier {
     result = fundingList
         .map((financing) => GestureDetector(
             onTap: () {
-              // 後程実装
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          FinancingDetailWidget(financing: financing)));
             },
             child: Card(
                 child: Column(
