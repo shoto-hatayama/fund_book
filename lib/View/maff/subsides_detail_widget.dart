@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fund_book/entity/subsides.dart';
+import 'package:fund_book/const/subsides_item_name.dart';
+import 'package:fund_book/View/component/detail_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SubsidesDetailWidget extends StatelessWidget {
   final Subsides subsides;
@@ -12,7 +15,18 @@ class SubsidesDetailWidget extends StatelessWidget {
       body: SingleChildScrollView(
           child: Column(
         children: [
-          // TODO:項目を表示するwidget作成
+          DetailCard(SubsidesItemName.title, subsides.title).make(),
+          DetailCard(SubsidesItemName.outline, subsides.outline).make(),
+          DetailCard(SubsidesItemName.season, subsides.outline).make(),
+          DetailCard(SubsidesItemName.rate, subsides.rate).make(),
+          DetailCard(SubsidesItemName.target, subsides.target).make(),
+          DetailCard(SubsidesItemName.remarks, subsides.remarks).make(),
+          ElevatedButton(
+              onPressed: () {
+                launchUrl(Uri.parse(subsides.url),
+                    mode: LaunchMode.inAppWebView);
+              },
+              child: const Text('詳細を見る'))
         ],
       )),
     );
