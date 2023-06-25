@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fund_book/const/jnet21_item_name.dart';
 import 'package:fund_book/entity/jnet21.dart';
-import 'package:fund_book/View/jnet21/detail_card.dart';
+import 'package:fund_book/View/component/detail_card.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Jnet21DetailWidget extends StatelessWidget {
