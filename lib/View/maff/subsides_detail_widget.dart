@@ -17,7 +17,7 @@ class SubsidesDetailWidget extends StatelessWidget {
         children: [
           DetailCard(SubsidesItemName.title, subsides.title).make(),
           DetailCard(SubsidesItemName.outline, subsides.outline).make(),
-          DetailCard(SubsidesItemName.season, subsides.outline).make(),
+          DetailCard(SubsidesItemName.season, subsides.season).make(),
           DetailCard(SubsidesItemName.rate, subsides.rate).make(),
           DetailCard(SubsidesItemName.target, subsides.target).make(),
           DetailCard(SubsidesItemName.remarks, subsides.remarks).make(),
