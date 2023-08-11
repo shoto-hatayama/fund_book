@@ -8,7 +8,6 @@ class DetailCard {
 
   Card make() {
     return Card(
-      color: Colors.green[100],
       margin: const EdgeInsets.all(10),
       elevation: 8,
       shadowColor: Colors.black,
